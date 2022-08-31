@@ -7,7 +7,7 @@ const App = () => {
     <>
       <Routes>
         <Route path="/todo" element={<Home />} />
-        <Route path="/auth" element={<Auth />} />
+        <Route path="/" element={<Auth />} />
         <Route path="*" element={<Navigate to="/todo" replace />} />
       </Routes>
     </>
