@@ -22,12 +22,6 @@ const TodoForm = () => {
     resetHandler,
   } = useInput(value => value.length !== 0);
 
-  // Form Validation
-  let formIsValid = false;
-  if (todoIsValid) {
-    formIsValid = true;
-  }
-
   // Todo 추가
   const createTodoHandler = () => {
     todoApi
@@ -59,7 +53,7 @@ const TodoForm = () => {
             />
           </div>
         </Label>
-        <Button type="submit" disabled={!formIsValid}>
+        <Button type="submit" disabled={!todoIsValid}>
           추가
         </Button>
       </Form>

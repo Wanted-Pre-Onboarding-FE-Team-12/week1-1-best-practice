@@ -37,12 +37,6 @@ const AuthForm = () => {
     if (authFormType === 'signup') toggleAuthFormType('login');
   };
 
-  // Form Validation
-  let formIsValid = false;
-  if (emailIsValid && passwordIsValid) {
-    formIsValid = true;
-  }
-
   // Login
   const login = () => {
     authApi
@@ -117,7 +111,7 @@ const AuthForm = () => {
           </div>
           {passwordHasError && <Error>비밀번호를 8자 이상으로 설정해주세요.</Error>}
         </Label>
-        <Button type="submit" disabled={!formIsValid}>
+        <Button type="submit" disabled={!emailIsValid && passwordIsValid}>
           {authFormType === 'login' ? '로그인' : '회원가입'}
         </Button>
       </Form>
