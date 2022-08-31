@@ -1,8 +1,10 @@
 import React, { useContext, useRef } from 'react';
 import { useNavigate, Navigate } from 'react-router-dom';
+
 import AuthContext from 'store/authStore';
 import useInput from '@hooks/useInput';
 import * as authApi from '@api/authApi';
+import { validateEmail, validatePassword } from 'utils/validation';
 
 // CSS
 import { Error, Form, Header, Label, LinkContainer, Link, Wrapper } from './style';
@@ -21,7 +23,7 @@ const AuthForm = () => {
     hasError: emailHasError,
     valueChangeHandler: onChangeEmail,
     inputBlurHandler: onBlurEmail,
-  } = useInput(value => value.includes('@'));
+  } = useInput(validateEmail);
 
   const {
     value: password,
@@ -29,7 +31,7 @@ const AuthForm = () => {
     hasError: passwordHasError,
     valueChangeHandler: onChangePassword,
     inputBlurHandler: onBlurPassword,
-  } = useInput(value => /.{8,}/.test(value));
+  } = useInput(validatePassword);
 
   // 로그인, 회원가입 전환
   const toggleFormType = () => {
