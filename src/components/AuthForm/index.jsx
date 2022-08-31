@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useRef } from 'react';
+import { useNavigate, Navigate } from 'react-router-dom';
 import AuthContext from 'store/authStore';
 import useInput from '@hooks/useInput';
 import * as authApi from '@api/authApi';
@@ -77,14 +77,10 @@ const AuthForm = () => {
   };
 
   // Page Redirection
-  useEffect(() => {
-    if (authToken) {
-      navigate('/todo', { replace: true });
-    }
-  }, [authToken, navigate]);
 
   return (
     <Wrapper>
+      {authToken && <Navigate to="/" replace="true" />}
       <Header>{authFormType === 'login' ? '로그인' : '회원가입'}</Header>
       <Form onSubmit={formSubmitHandler}>
         <Label id="email-label" error={emailHasError}>
