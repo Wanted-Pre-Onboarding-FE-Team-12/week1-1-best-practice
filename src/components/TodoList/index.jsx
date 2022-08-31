@@ -13,7 +13,7 @@ const TodoList = () => {
 
   useEffect(() => {
     getTodo();
-  }, [getTodo]);
+  }, []);
 
   return (
     <Wrapper>

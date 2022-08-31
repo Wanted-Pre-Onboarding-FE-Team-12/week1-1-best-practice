@@ -9,6 +9,7 @@ import { Wrapper, Form } from './style';
 import { Label } from '@components/AuthForm/style';
 import { Button } from '@components/UI/Button';
 import TodoContext from 'store/todoStore';
+import { validateTodo } from 'utils/validation';
 
 const TodoForm = () => {
   const { authToken } = useContext(AuthContext);
@@ -20,7 +21,7 @@ const TodoForm = () => {
     valueChangeHandler: onChangeTodo,
     inputBlurHandler: onBlurTodo,
     resetHandler,
-  } = useInput(value => value.length !== 0);
+  } = useInput(validateTodo);
 
   // Todo 추가
   const createTodoHandler = () => {
