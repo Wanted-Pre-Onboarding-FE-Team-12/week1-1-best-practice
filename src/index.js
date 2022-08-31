@@ -12,7 +12,7 @@ root.render(
     <AuthContextProvider>
       <TodoContextProvider>
         <ModalContextProvider>
-          <BrowserRouter basename={process.env.PUBLIC_URL}>
+          <BrowserRouter>
             <App />
           </BrowserRouter>
         </ModalContextProvider>
