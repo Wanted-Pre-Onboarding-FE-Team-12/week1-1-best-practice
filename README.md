@@ -31,7 +31,11 @@ npm run start
 <br/>
 <br/>
 
-### 3. 폴더 트리 구조
+### 3. Best Practice를 위한 회의
+[ Best Practice를 위한 과정](https://sandy-thread-f9f.notion.site/Best-practice-3f1247c287554faabd3e648297f3765a)
+<br/>
+<br/>
+### . 폴더 트리 구조
 📁 **src**
 
   📁**api**
