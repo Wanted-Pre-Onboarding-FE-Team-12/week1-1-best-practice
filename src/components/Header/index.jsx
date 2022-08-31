@@ -1,9 +1,10 @@
-import { Button } from '@components/UI/Button';
 import React, { useContext } from 'react';
 import { useMatch } from 'react-router-dom';
+
 import AuthContext from 'store/authStore';
 
 // CSS
+import { Button } from '@components/UI/Button';
 import { Wrapper } from './style';
 
 const Header = () => {
