@@ -1,5 +1,5 @@
 import React, { useContext, useRef } from 'react';
-import { useNavigate, Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import AuthContext from 'store/authStore';
 import useInput from '@hooks/useInput';
@@ -11,9 +11,8 @@ import { Error, Form, Header, Label, LinkContainer, Link, Wrapper } from './styl
 import { Button } from '@components/UI/Button';
 
 const AuthForm = () => {
-  const { authFormType, authToken, toggleAuthFormType, setToken } = useContext(AuthContext);
+  const { authFormType, toggleAuthFormType, setToken } = useContext(AuthContext);
   const navigate = useNavigate();
-
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
@@ -59,7 +58,6 @@ const AuthForm = () => {
         alert('회원가입 완료');
       })
       .catch(error => {
-        // console.log(error.response.data.message);
         alert(error.response.data.message);
       });
   };
@@ -68,15 +66,11 @@ const AuthForm = () => {
   const formSubmitHandler = e => {
     e.preventDefault();
     if (authFormType === 'login') login();
-
     if (authFormType === 'signup') signup();
   };
 
-  // Page Redirection
-
   return (
     <Wrapper>
-      {authToken && <Navigate to="/" replace="true" />}
       <Header>{authFormType === 'login' ? '로그인' : '회원가입'}</Header>
       <Form onSubmit={formSubmitHandler}>
         <Label id="email-label" error={emailHasError}>

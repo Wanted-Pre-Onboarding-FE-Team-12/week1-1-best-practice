@@ -27,7 +27,11 @@ export const TodoContextProvider = ({ children }) => {
       .then(response => {
         setTodos(response.data);
       })
-      .catch(error => {});
+      .catch(error => {
+        if (error.response) {
+          alert('todo-list를 불러오는데 오류가 발생했습니다.');
+        }
+      });
   };
 
   // Todo 생성
